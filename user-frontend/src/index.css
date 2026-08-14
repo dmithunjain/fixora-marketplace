@@ -1,0 +1,265 @@
+/* ================================
+   GLOBAL RESET & BASE
+=============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   BODY & BACKGROUND
+=============================== */
+body {
+  font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+  background: #f8f9ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ================================
+   LINKS & TEXT
+=============================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================================
+   NAVBAR - FIXED GLASS EFFECT
+=============================== */
+.MuiAppBar-root {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.85) !important;
+  transition: all 0.3s ease;
+}
+
+.MuiToolbar-root {
+  min-height: 68px !important;
+}
+
+.MuiButton-root {
+  text-transform: none !important;
+  border-radius: 10px !important;
+  font-weight: 500;
+}
+
+.MuiButton-contained {
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25) !important;
+}
+
+.MuiButton-contained:hover {
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35) !important;
+}
+
+/* ================================
+   CARDS (SERVICES, SPOTLIGHT)
+=============================== */
+.MuiCard-root {
+  border-radius: 18px !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-4px);
+}
+
+/* ================================
+   IMAGES
+=============================== */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Rounded hero images */
+.hero-image {
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* ================================
+   SERVICE ICONS
+=============================== */
+.service-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* ================================
+   CAROUSEL
+=============================== */
+.carousel {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.carousel img {
+  border-radius: 18px;
+}
+
+/* ================================
+   SPACING HELPERS
+=============================== */
+.section {
+  padding: 64px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* ================================
+   FOOTER
+=============================== */
+footer,
+.MuiBox-root.footer {
+  background: #0f172a;
+  color: #cbd5e1;
+}
+
+footer a {
+  color: #cbd5e1;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* ================================
+   SCROLLBAR (DESKTOP)
+=============================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.4);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.6);
+}
+
+/* ================================
+   MOBILE TWEAKS
+=============================== */
+@media (max-width: 768px) {
+  .MuiToolbar-root {
+    min-height: 60px !important;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+}
+
+/* ================================
+   SERVICE GRID
+=============================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 520px;
+}
+
+.service-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 22px 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+.service-card img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.section-glass {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ================================
+   GLOBAL TRANSITION OVERRIDE
+=============================== */
+* {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Remove transition from animations */
+@keyframes,
+transition {
+  transition: none;
+}
+
+/* ================================
+   PAGE WRAPPER FIX
+=============================== */
+#root {
+  background-color: #f8f9ff;
+  min-height: 100vh;
+}
+
+/* Fix for content appearing under fixed navbar */
+main {
+  padding-top: 0;
+}

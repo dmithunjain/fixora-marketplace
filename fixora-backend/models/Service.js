@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+
+const serviceSchema = new mongoose.Schema({
+  name: String,
+  title: String,
+  slug: String,
+  description: String,
+  category: String,
+  categoryId: String,
+  subCategory: String,
+  subCategoryId: String,
+  price: { type: Number, required: true },
+  originalPrice: { type: Number, default: 0 },
+  discount: { type: Number, default: 0 },
+  duration: String,
+  durationText: String,
+  availability: String,
+  image: String,
+  images: [String],
+  highlights: [String],
+  availableDates: [String],
+  availableTimes: [String],
+  isAvailable: { type: Boolean, default: true },
+  isApproved: { type: Boolean, default: false },
+  isPublished: { type: Boolean, default: false },
+  deleteRequested: { type: Boolean, default: false },
+  deleteRequestedAt: Date,
+  deleteRequestedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
+  adminNotes: String,
+  approvedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  approvedAt: Date,
+  createdByUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' },
+  rating: { type: Number, default: 0 },
+  totalReviews: { type: Number, default: 0 },
+  bookingsCount: { type: Number, default: 0 },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Service', serviceSchema);

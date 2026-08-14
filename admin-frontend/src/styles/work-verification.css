@@ -1,0 +1,66 @@
+/* ====== DARK MODE ====== */
+:root {
+  --verify-bg: #ffffff;
+  --verify-text: #2d3748;
+  --verify-border: #cbd5e0;
+}
+
+[data-theme="dark"] {
+  --verify-bg: #1f2937;
+  --verify-text: #ffffff;
+  --verify-border: #4b5563;
+}
+
+/* Work Upload & Verification Styles */
+.work-verification-container {
+  padding: 20px;
+}
+
+.verification-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background: var(--verify-bg);
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-group label {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--verify-text);
+  transition: color 0.3s ease;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--verify-border);
+  border-radius: 4px;
+  font-size: 13px;
+  background: var(--verify-bg);
+  color: var(--verify-text);
+  transition: all 0.3s ease;
+}
+
+.search-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--verify-border);
+  border-radius: 4px;
+  background: var(--verify-bg);
+  color: var(--verify-text);
+  transition: all 0.3s ease;
+}

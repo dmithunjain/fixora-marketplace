@@ -1,0 +1,86 @@
+.serviceRow{
+padding:60px 80px;
+background:#fff;
+}
+
+/* HEADER */
+
+.serviceRowHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.serviceRowTitle{
+font-size:30px !important;
+font-weight:700 !important;
+}
+
+.seeAll{
+font-size:16px;
+cursor:pointer;
+color:#111;
+}
+
+/* SERVICE CONTAINER */
+
+.serviceRowContainer{
+display:flex;
+gap:25px;
+overflow-x:auto;
+}
+
+/* CARD */
+
+.serviceCard{
+min-width:250px;
+cursor:pointer;
+}
+
+/* IMAGE */
+
+.serviceImage{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:16px;
+margin-bottom:10px;
+}
+
+/* SERVICE NAME */
+
+.serviceName{
+font-weight:600 !important;
+font-size:16px !important;
+}
+
+/* RATING */
+
+.ratingRow{
+display:flex;
+align-items:center;
+margin-top:4px;
+}
+
+.starIcon{
+color:#f4b400;
+font-size:18px !important;
+margin-right:5px;
+}
+
+.ratingText{
+font-size:14px !important;
+}
+
+/* PRICE */
+
+.priceText{
+margin-top:8px !important;
+font-weight:600 !important;
+}
+
+.priceText span{
+color:gray;
+font-weight:400;
+}

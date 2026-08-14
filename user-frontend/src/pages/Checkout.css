@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.checkout-page {
+  min-height: 100vh;
+  padding: 40px 0;
+  background: #f7f7fb;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.checkout-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.checkout-header {
+  margin-bottom: 28px;
+}
+
+.checkout-title {
+  font-weight: 700 !important;
+  font-size: 28px !important;
+  color: #111 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px !important;
+}
+
+.checkout-subtitle {
+  color: #777;
+  font-size: 15px;
+}
+
+/* Step Progress Bar */
+.checkout-stepper {
+  margin-bottom: 32px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.checkout-stepper .MuiStepLabel-label {
+  font-weight: 500 !important;
+  font-size: 14px;
+  color: #777;
+}
+
+.checkout-stepper .MuiStepLabel-label.Mui-active {
+  color: #6c4cff !important;
+  font-weight: 600 !important;
+}
+
+.checkout-stepper .MuiStepLabel-label.Mui-completed {
+  color: #6c4cff !important;
+}
+
+.checkout-stepper .MuiStepIcon-root {
+  color: #ddd;
+}
+
+.checkout-stepper .MuiStepIcon-root.Mui-active {
+  color: #6c4cff !important;
+}
+
+.checkout-stepper .MuiStepIcon-root.Mui-completed {
+  color: #6c4cff !important;
+}
+
+/* Main Grid Layout */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* Card Design */
+.checkout-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* Left Column - Payment Section */
+.payment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Booking Details Card */
+.booking-details-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 24px;
+}
+
+.booking-details-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.booking-form-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+/* Input Fields */
+.checkout-input {
+  width: 100%;
+}
+
+.checkout-input input,
+.checkout-input .MuiOutlinedInput-root {
+  border-radius: 8px !important;
+  font-size: 14px;
+}
+
+.checkout-input input:focus,
+.checkout-input .MuiOutlinedInput-root.Mui-focused {
+  border-color: #6c4cff !important;
+  box-shadow: 0 0 0 3px rgba(108, 76, 255, 0.1);
+}
+
+.checkout-input .MuiOutlinedInput-root fieldset {
+  border-color: #ddd;
+}
+
+.checkout-input .MuiOutlinedInput-root:hover fieldset {
+  border-color: #ccc;
+}
+
+/* Payment Methods */
+.payment-methods-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 24px;
+}
+
+.payment-methods-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.payment-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Payment Option Card */
+.payment-option-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.payment-option-card:hover {
+  border-color: #ccc;
+  transform: translateY(-1px);
+}
+
+.payment-option-card.active {
+  border: 2px solid #6c4cff;
+  background: #f4f2ff;
+}
+
+.payment-option-card .radio-check {
+  color: #ccc;
+}
+
+.payment-option-card.active .radio-check {
+  color: #6c4cff;
+}
+
+.payment-option-card .method-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.payment-option-card .method-name {
+  font-weight: 500;
+  color: #111;
+  font-size: 14px;
+}
+
+/* Payment Form */
+.payment-form-section {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 12px;
+}
+
+.payment-form-section h4 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.card-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card-form-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+/* UPI Section */
+.upi-section {
+  text-align: center;
+}
+
+.upi-timer {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #fff3e0;
+  color: #f57c00;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.upi-qr-container {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.upi-qr-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+}
+
+.upi-pay-details {
+  margin: 16px 0;
+}
+
+.upi-pay-details p {
+  margin: 4px 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.upi-id-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.upi-id-display span {
+  font-weight: 600;
+  color: #111;
+  font-size: 15px;
+}
+
+.copy-btn {
+  color: #6c4cff !important;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* COD Section */
+.cod-info {
+  padding: 16px;
+  background: #e8f5e9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cod-info p {
+  margin: 0;
+  color: #2e7d32;
+  font-size: 14px;
+}
+
+/* Right Column - Order Summary */
+.order-summary-section {
+  position: sticky;
+  top: 24px;
+}
+
+/* Service Item */
+.service-item-card {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.service-item-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.service-item-details {
+  flex: 1;
+}
+
+.service-item-title {
+  font-weight: 600;
+  color: #111;
+  font-size: 14px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.service-item-category {
+  color: #777;
+  font-size: 12px;
+}
+
+.service-item-price {
+  font-weight: 600;
+  color: #111;
+  font-size: 15px;
+  text-align: right;
+}
+
+/* Summary Rows */
+.summary-rows {
+  padding: 8px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #777;
+}
+
+.summary-row.total {
+  border-top: 1px dashed #ddd;
+  padding-top: 14px;
+  margin-top: 14px;
+  font-weight: 600;
+  color: #111;
+  font-size: 16px;
+}
+
+.summary-row.total span:last-child {
+  color: #6c4cff;
+  font-weight: 700;
+}
+
+/* Primary Button */
+.checkout-primary-btn {
+  width: 100%;
+  padding: 14px 24px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(90deg, #6c4cff, #7f5cff) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  text-transform: none !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+.checkout-primary-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(108, 76, 255, 0.3);
+}
+
+.checkout-primary-btn:disabled {
+  background: #ccc !important;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Success State */
+.payment-success-wrap {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon-large {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(90deg, #6c4cff, #7f5cff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.success-icon-large svg {
+  font-size: 40px;
+  color: #fff;
+}
+
+.success-title {
+  font-weight: 700;
+  color: #111;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.success-message {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Service Details (Left Card) */
+.service-details-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.service-details-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.service-details-info h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.service-details-info p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+/* Location & Schedule */
+.location-schedule-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.location-item,
+.schedule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+
+.location-item svg,
+.schedule-item svg {
+  color: #6c4cff;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.location-item h5,
+.schedule-item h5 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+.location-item p,
+.schedule-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.4;
+}
+
+/* Not Found */
+.checkout-not-found {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+}
+
+/* Loading State */
+.checkout-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-loading .skeleton-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-summary-section {
+    position: static;
+    order: -1;
+  }
+  
+  .checkout-page {
+    padding: 20px 0;
+  }
+  
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .location-schedule-card {
+    flex-direction: column;
+  }
+  
+  .checkout-title {
+    font-size: 22px !important;
+  }
+  
+  .checkout-stepper {
+    padding: 12px 16px;
+  }
+}
+
+/* Dialog */
+.MuiDialog-paper {
+  border-radius: 16px !important;
+}
+
+.MuiDialogTitle-root {
+  font-weight: 600 !important;
+  color: #111;
+}
+
+.confirm-dialog-content {
+  padding: 16px 24px;
+  color: #555;
+  font-size: 14px;
+}
+
+.confirm-dialog-actions {
+  padding: 16px 24px;
+}
+
+/* Snackbar */
+.MuiSnackbar-root .MuiAlert-root {
+  border-radius: 10px;
+}
