@@ -1,5 +1,5 @@
 import { Box, Typography, Skeleton } from "@mui/material";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { ArrowForward, Star } from "@mui/icons-material";
 
@@ -21,7 +21,6 @@ const categoryMap = {
 
 export default function ServiceRow({ title, seeAllLink, services, scrollY = 0 }) {
   const [visible, setVisible] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [cardOffsets, setCardOffsets] = useState([]);
   const sectionRef = useRef(null);
   const gradient = gradients[title] || "linear-gradient(180deg, #f8fbff 0%, #fff 100%)";
@@ -33,7 +32,7 @@ export default function ServiceRow({ title, seeAllLink, services, scrollY = 0 })
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          setTimeout(() => setLoading(false), 800);
+          observer.disconnect();
           observer.disconnect();
         }
       },
@@ -56,7 +55,7 @@ export default function ServiceRow({ title, seeAllLink, services, scrollY = 0 })
       });
       setCardOffsets(offsets);
     }
-  }, [scrollY, visible, services.length]);
+  }, [scrollY, visible, services]);
 
   const SectionSkeleton = () => (
     <Box sx={{ px: { xs: 2, md: 8 }, py: 6 }}>

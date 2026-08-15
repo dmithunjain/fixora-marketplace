@@ -20,7 +20,6 @@ import {
 } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -919,7 +918,6 @@ export default function Navbar() {
   };
 
   const [locationOpen, setLocationOpen] = useState(false);
-  const [locationLoading, setLocationLoading] = useState(false);
   const user = authUser;
 
   const [location, setLocation] = useState(() => {

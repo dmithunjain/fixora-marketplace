@@ -34,12 +34,10 @@ export default function CategoryPage() {
 
 const { slug } = useParams();
 const [categoryServices, setCategoryServices] = useState([]);
-const [loading, setLoading] = useState(true);
 
 useEffect(() => {
   const loadServices = async () => {
-    setLoading(true);
-    try {
+        try {
       const normalizedSlug = categorySlugMap[slug] || slug;
       const response = await publicServiceAPI.getServices({ category: normalizedSlug });
       const backendServices = response?.data?.services || [];
@@ -61,8 +59,7 @@ useEffect(() => {
       console.log("Backend services fetch failed:", err.message);
       setCategoryServices([]);
     } finally {
-      setLoading(false);
-    }
+          }
   };
 
   loadServices();
@@ -217,4 +214,4 @@ service={service}
 
 );
 
-}
+}

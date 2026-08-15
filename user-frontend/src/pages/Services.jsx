@@ -97,6 +97,7 @@ export default function Services() {
     }
     
     fetchServices();
+  // eslint-disable-next-line no-use-before-define, react-hooks/exhaustive-deps
   }, [searchParams, pageIdParam]);
 
   const fetchServices = async () => {
@@ -105,7 +106,6 @@ export default function Services() {
       const pageId = pageIdParam;
       const searchQuery = searchParams.get("q");
       const catParam = searchParams.get("category");
-      const numericPageId = parseInt(pageId, 10);
       
       let combinedServices = [];
       

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Button, CircularProgress, Alert } from "@mui/material";
+import { Box, Typography, Button, CircularProgress } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { paymentAPI, bookingAPI } from "../services/api";
 
@@ -8,8 +8,7 @@ export default function Payment() {
   const { id: bookingId } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [paymentData, setPaymentData] = useState(null);
-  const [razorpayInstance, setRazorpayInstance] = useState(null);
+const [paymentData] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paymentFailed, setPaymentFailed] = useState(false);
 
@@ -74,7 +73,6 @@ export default function Payment() {
           };
           
           const rzp1 = new window.Razorpay(options);
-          setRazorpayInstance(rzp1);
           rzp1.open();
         } else {
           setError("Razorpay SDK not loaded");

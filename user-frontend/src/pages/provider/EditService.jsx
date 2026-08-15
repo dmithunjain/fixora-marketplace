@@ -31,6 +31,7 @@ export default function EditService() {
     const stored = JSON.parse(localStorage.getItem("providerData") || "{}");
     setProviderData(stored);
     loadService();
+  // eslint-disable-next-line no-use-before-define, react-hooks/exhaustive-deps
   }, [id, navigate]);
 
   const loadService = async () => {

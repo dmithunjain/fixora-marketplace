@@ -1,9 +1,8 @@
-import { Box, Typography, Button, Grid, TextField, Chip, Divider, Skeleton, Paper, Container, IconButton, Tabs, Tab, Snackbar, Alert } from "@mui/material";
+import { Box, Typography, Button, Grid, TextField, Chip, Divider,  Paper, Container, IconButton, Tabs, Tab, Snackbar, Alert } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import StarRating from "../components/StarRating";
 import ServiceReviews from "../components/ServiceReviews";
 import { ServiceDetailSkeleton } from "../components/SkeletonLoader";
 import { publicServiceAPI, bookingAPI } from "../services/api";
@@ -14,7 +13,6 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import LoopIcon from "@mui/icons-material/Loop";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton, Divider, Container, Grid, Link } from "@mui/material";
+import { Box, Typography, IconButton, Divider, Container, Grid } from "@mui/material";
 import { Facebook, Instagram, LinkedIn, Twitter, Phone, Email, LocationOn } from "@mui/icons-material";
 
 export default function Footer() {

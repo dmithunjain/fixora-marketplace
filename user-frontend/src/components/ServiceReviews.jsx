@@ -45,6 +45,7 @@ const ServiceReviews = ({
     if (serviceId) {
       fetchReviews();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serviceId]);
 
   const handlePageChange = (event, value) => {

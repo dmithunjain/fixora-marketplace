@@ -10,7 +10,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import WorkIcon from "@mui/icons-material/Work";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";

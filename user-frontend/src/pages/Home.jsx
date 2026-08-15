@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Suspense, lazy } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Hero from "../components/Hero";
 import BannerCarousel from "../components/BannerCarousel";
 import SpotlightSection from "../components/SpotlightSection";

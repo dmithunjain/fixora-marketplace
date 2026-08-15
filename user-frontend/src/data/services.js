@@ -1,9 +1,3 @@
-import acImg from "../assets/AC-Gas-Refill.jpg";
-import washingImg from "../assets/Washing-Machine-Repair.jpg";
-import cleaningImg from "../assets/clean.jpg";
-import electricianImg from "../assets/male-electrician-works-switchboard-with-electrical-connecting-cable.jpg";
-import plumberImg from "../assets/plumber.jpg";
-import womenImg from "../assets/spotlight-luxe.jpg";
 
 // MOST BOOKED
 import img1 from "../assets/Full-Home-cleaning.jpg";

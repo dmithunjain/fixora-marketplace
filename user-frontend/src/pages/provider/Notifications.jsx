@@ -77,6 +77,7 @@ export default function Notifications() {
       return;
     }
     loadNotifications();
+  // eslint-disable-next-line no-use-before-define, react-hooks/exhaustive-deps
   }, [navigate, filter]);
 
   const loadNotifications = async () => {

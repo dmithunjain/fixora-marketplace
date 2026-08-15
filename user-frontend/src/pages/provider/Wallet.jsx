@@ -13,19 +13,7 @@ const WalletIcon = () => (
   </svg>
 );
 
-const TrendingUpIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-    <polyline points="17 6 23 6 23 12"></polyline>
-  </svg>
-);
 
-const ClockIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="10"></circle>
-    <polyline points="12 6 12 12 16 14"></polyline>
-  </svg>
-);
 
 const DownloadIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -42,12 +30,6 @@ const BankIcon = () => (
   </svg>
 );
 
-const SearchIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-);
 
 const CloseIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -61,7 +43,6 @@ export default function Wallet() {
 
   const [loading, setLoading] = useState(true);
   const [walletData, setWalletData] = useState(null);
-  const [transactions, setTransactions] = useState([]);
   const [message, setMessage] = useState({ type: "", text: "" });
   const [providerData, setProviderData] = useState(null);
   const [showBankModal, setShowBankModal] = useState(false);
@@ -82,9 +63,7 @@ export default function Wallet() {
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [withdrawLoading, setWithdrawLoading] = useState(false);
   const [withdrawals, setWithdrawals] = useState([]);
-  const [bankSearchLoading, setBankSearchLoading] = useState(false);
   const [withdrawalSlip, setWithdrawalSlip] = useState(null);
-  const [slipLoading, setSlipLoading] = useState(false);
 
   useEffect(() => {
     const auth = localStorage.getItem("providerAuth");
@@ -143,11 +122,9 @@ export default function Wallet() {
       } catch (withdrawErr) {
         console.log("Withdrawals error:", withdrawErr);
       }
-      setTransactions([]);
     } catch (err) {
       console.log("Wallet data error:", err);
       setWalletData({ balance: 0, totalEarnings: 0, pendingEarnings: 0 });
-      setTransactions([]);
     } finally {
       setLoading(false);
     }
@@ -155,14 +132,12 @@ export default function Wallet() {
 
   const handleDownloadSlip = async (withdrawalId) => {
     try {
-      setSlipLoading(true);
       const response = await walletAPI.getWithdrawalSlip(withdrawalId);
       setWithdrawalSlip(response.data);
     } catch (error) {
       console.error('Error fetching withdrawal slip:', error);
       alert('Failed to load withdrawal details');
     } finally {
-      setSlipLoading(false);
     }
   };
 
@@ -279,10 +254,8 @@ export default function Wallet() {
    const searchBanks = async (query) => {
     if (query.length < 2) {
       setBankSearchResults([]);
-      setBankSearchLoading(false);
       return;
     }
-    setBankSearchLoading(true);
     try {
       const results = searchIndianBanks(query).map((name) => ({ BANK: name, IFSC: '', BRANCH: 'Select IFSC manually', CITY: '' }));
       setBankSearchResults(results);
@@ -290,7 +263,6 @@ export default function Wallet() {
       console.log("Bank search error:", error);
       setBankSearchResults([]);
     } finally {
-      setBankSearchLoading(false);
     }
   };
 
@@ -391,7 +363,7 @@ export default function Wallet() {
     setWithdrawLoading(true);
     try {
       const paymentMethod = bankForm.upiId ? 'upi' : 'bank_transfer';
-      const response = await walletAPI.requestWithdrawal({
+      await walletAPI.requestWithdrawal({
         amount,
         paymentMethod,
         bankDetails: paymentMethod === 'bank_transfer' ? {

@@ -25,8 +25,6 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EventIcon from "@mui/icons-material/Event";
-import PaymentIcon from "@mui/icons-material/Payment";
-import GPayIcon from "@mui/icons-material/Payments";
 import { paymentAPI, publicServiceAPI } from "../services/api";
 import { useCart } from "../context/CartContext";
 import "./Checkout.css";
@@ -71,8 +69,7 @@ export default function Checkout() {
   const [userUpiId, setUserUpiId] = useState("");
   const [upiPin, setUpiPin] = useState("");
   
-  const [upiPayment, setUpiPayment] = useState(null);
-  const [upiLoading, setUpiLoading] = useState(false);
+const [upiPayment] = useState(null);
   const [upiPaid, setUpiPaid] = useState(false);
   const [timeLeft, setTimeLeft] = useState(300);
   
@@ -212,37 +209,9 @@ export default function Checkout() {
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [upiPayment, upiPaid]);
+  }, [upiPayment, upiPaid, timeLeft]);
 
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
 
-  const handleCreateUPI = async () => {
-    if (!validateBookingPayload()) {
-      return;
-    }
-    setUpiLoading(true);
-    try {
-      const response = await paymentAPI.createUPI({
-        serviceId: service._id,
-        amount: payableAmount,
-        bookingDate: selectedDate,
-        bookingTime: selectedTime,
-        address: bookingAddress,
-        customerDetails,
-        notes: bookingNotes
-      });
-      setUpiPayment(response.data);
-      setTimeLeft(300);
-    } catch (error) {
-      setSnackbar({ open: true, message: error.response?.data?.message || "Failed to create UPI payment", severity: "error" });
-    } finally {
-      setUpiLoading(false);
-    }
-  };
 
   const handleUPIPaid = async () => {
     if (!userUpiId) {
@@ -255,9 +224,8 @@ export default function Checkout() {
     }
     
     // Direct payment with UPI ID and PIN
-    setUpiLoading(true);
     try {
-      const response = await paymentAPI.createUPI({
+      await paymentAPI.createUPI({
         serviceId: service._id,
         amount: payableAmount,
         bookingDate: selectedDate,
@@ -278,7 +246,6 @@ export default function Checkout() {
     } catch (error) {
       setSnackbar({ open: true, message: error.response?.data?.message || "Payment failed. Please check your UPI ID and PIN.", severity: "error" });
     } finally {
-      setUpiLoading(false);
     }
   };
 
@@ -304,10 +271,6 @@ export default function Checkout() {
     }
   };
 
-  const copyUPIID = () => {
-    navigator.clipboard.writeText("fixora@upi");
-    setSnackbar({ open: true, message: "UPI ID copied!", severity: "success" });
-  };
 
   const handleCardPayment = async () => {
     if (!validateBookingPayload()) {

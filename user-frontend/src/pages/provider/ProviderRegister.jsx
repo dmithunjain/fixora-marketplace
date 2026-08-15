@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   Box, Typography, TextField, Button, CircularProgress, 
-  Alert, Paper, InputAdornment, IconButton, Divider
+Alert, Paper, InputAdornment, IconButton
 } from "@mui/material";
 import { providerAPI } from "../../services/api";
 import VisibilityIcon from "@mui/icons-material/Visibility";

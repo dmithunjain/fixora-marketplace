@@ -80,8 +80,6 @@ export default function ProviderVerification() {
   
   const [bankSearch, setBankSearch] = useState("");
   const [bankResults, setBankResults] = useState([]);
-  const [searchingBank, setSearchingBank] = useState(false);
-  const [selectedBank, setSelectedBank] = useState(null);
 
   const [formData, setFormData] = useState({
     businessName: "",
@@ -128,7 +126,6 @@ export default function ProviderVerification() {
           upiId: res.data.upiId || ""
         });
         if (res.data.bankDetails?.bankName) {
-          setSelectedBank({ name: res.data.bankDetails.bankName });
         }
       }
     } catch (error) {
@@ -144,7 +141,6 @@ export default function ProviderVerification() {
       return;
     }
     
-    setSearchingBank(true);
     try {
       const results = searchIndianBanks(query).map((name) => ({ name, id: name }));
       setBankResults(results.slice(0, 20));
@@ -152,7 +148,6 @@ export default function ProviderVerification() {
       console.error("Bank search error:", error);
       setBankResults([]);
     } finally {
-      setSearchingBank(false);
     }
   }, []);
 
@@ -166,7 +161,6 @@ export default function ProviderVerification() {
   }, [bankSearch, searchBanks]);
 
   const selectBank = (bank) => {
-    setSelectedBank(bank);
     setFormData(prev => ({
       ...prev,
       bankDetails: {
@@ -214,7 +208,7 @@ export default function ProviderVerification() {
   };
 
   const submitBankDetails = async () => {
-    const { bankName, accountNumber, ifscCode, accountHolderName, mobileNumber } = formData.bankDetails;
+    const { bankName, accountNumber, ifscCode, mobileNumber } = formData.bankDetails;
     
     if (!bankName || !accountNumber || !ifscCode) {
       setMessage({ type: "error", text: "Please fill in bank name, account number, and IFSC code" });
@@ -574,7 +568,6 @@ export default function ProviderVerification() {
                             value={bankSearch}
                             onChange={(e) => {
                               setBankSearch(e.target.value);
-                              setSelectedBank(null);
                             }}
                             placeholder="Search for your bank..."
                             style={{ paddingRight: '40px' }}

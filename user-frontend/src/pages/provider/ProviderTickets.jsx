@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProviderSidebar from "../../components/ProviderSidebar";
-import { supportAPI, providerAPI } from "../../services/api";
+import { supportAPI } from "../../services/api";
 import "./ProviderPanel.css";
 
 const PlusIcon = () => (
